@@ -12,4 +12,7 @@ enum Symbol {
     
     static let hourlyForecast = Image(systemName: "clock")
     static let tenDayForecast = Image(systemName: "calendar")
+    static let uvIndex = Image(systemName: "sun.max.fill")
+    static let sunset = Image(systemName: "sunset.fill")
+    static let sunrise = Image(systemName: "sunrise.fill")
 }

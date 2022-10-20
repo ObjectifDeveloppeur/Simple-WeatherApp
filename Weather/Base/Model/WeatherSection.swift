@@ -10,6 +10,8 @@ import SwiftUI
 enum WeatherSection {
     case hourlyForecast
     case tenDayForecast
+    case uvIndex
+    case sun(Bool)
 }
 
 extension WeatherSection {
@@ -19,6 +21,10 @@ extension WeatherSection {
             return "Prévisions heure par heure"
         case .tenDayForecast:
             return "Prévisions sur 10 jours"
+        case .uvIndex:
+            return "Indice UV"
+        case .sun(let isDaylight):
+            return isDaylight ? "Sunset" : "Sunrise"
         }
     }
     
@@ -28,6 +34,10 @@ extension WeatherSection {
             return Symbol.hourlyForecast
         case .tenDayForecast:
             return Symbol.tenDayForecast
+        case .uvIndex:
+            return Symbol.uvIndex
+        case .sun(let isDaylight):
+            return isDaylight ? Symbol.sunset : Symbol.sunrise
         }
     }
 }

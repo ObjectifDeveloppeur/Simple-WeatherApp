@@ -17,10 +17,12 @@ struct ErrorView: View {
     var body: some View {
         VStack {
             Symbol.error
+                .font(.system(size: 100))
             
             Text(error.localizedDescription)
+                .font(.title2)
         }
-        .font(.largeTitle)
         .foregroundStyle(.ultraThickMaterial)
+        .padding()
     }
 }

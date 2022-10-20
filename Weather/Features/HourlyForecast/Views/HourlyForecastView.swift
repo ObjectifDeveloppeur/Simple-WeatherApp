@@ -20,9 +20,10 @@ struct HourlyForecastView: View {
     //MARK: Body
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 10) {
             WeatherSectionView(.hourlyForecast)
-                .padding(.horizontal, 6)
+                .padding(.horizontal)
+                .padding(.top, 6)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 18) {
@@ -30,7 +31,8 @@ struct HourlyForecastView: View {
                             id: \.date,
                             content: HourlyForecastRow.init)
                 }
-                .padding()
+                .padding(.horizontal)
+                .padding(.bottom, 6)
             }
         }
         .background(.ultraThinMaterial.opacity(0.4))
@@ -44,6 +46,8 @@ struct HourlyForecastView: View {
 struct HourlyForecastView_Previews: PreviewProvider {
     static var previews: some View {
         HourlyForecastView(for: [])
+            .padding()
+            .background(.blue)
     }
 }
 

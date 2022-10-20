@@ -21,13 +21,9 @@ struct WeatherSectionView: View {
             Text(section.title.uppercased())
         }
         .font(.caption)
-        .foregroundStyle(.ultraThickMaterial)
+        .foregroundStyle(.secondary)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 6)
-        .overlay(alignment: .bottom) {
-            Divider()
-                .overlay(.secondary)
-        }
     }
 }
 

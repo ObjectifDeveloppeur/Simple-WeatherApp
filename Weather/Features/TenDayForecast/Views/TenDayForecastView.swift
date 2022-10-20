@@ -26,10 +26,8 @@ struct TenDayForecastView: View {
                 
                 ForEach(tenDayWeather, id: \.date, content: DayForecastRow.init)
             }
-            .padding(.horizontal)
         }
-        .background(.ultraThinMaterial.opacity(0.4))
-        .cornerRadius(8)
+        .cellBackground()
     }
 }
 

@@ -17,13 +17,12 @@ struct DayForecastRow: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Divider()
+                .overlay(.secondary)
+            
             HStack {
                 day ; symbol ; lowTemperature ; highTemperature
             }
-            .bold()
-            
-            Divider()
-                .overlay(.secondary)
         }
     }
 }
