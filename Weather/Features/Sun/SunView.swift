@@ -35,6 +35,7 @@ struct SunView: View {
             
             Text(vm.footer)
         }
+        .cellBackground()
     }
 }
 
@@ -65,9 +66,7 @@ struct SunView_Previews: PreviewProvider {
     }
     static var previews: some View {
         SunView(for: weather)
-            .frame(width: 200, height: 80)
-            .cellBackground()
             .padding(50)
-            .background(.blue)
+            .background(SkyView(for: weather.currentWeather.condition))
     }
 }

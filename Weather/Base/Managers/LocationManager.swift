@@ -1,5 +1,5 @@
 //
-//  LocationService.swift
+//  LocationManager.swift
 //  Weather
 //
 //  Created by Maxime Lathiere on 18/10/2022.
@@ -12,7 +12,7 @@ protocol Locating {
     var location: CLLocation? { get }
 }
 
-final class LocationService: NSObject, Locating {
+final class LocationManager: NSObject, Locating {
     private let locationManager = CLLocationManager()
     
     override init() {
@@ -30,7 +30,7 @@ final class LocationService: NSObject, Locating {
 
 //MARK: - CLLocationManagerDelegate
 
-extension LocationService: CLLocationManagerDelegate {
+extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
               guard let location = locations.last else { return }
               DispatchQueue.main.async {

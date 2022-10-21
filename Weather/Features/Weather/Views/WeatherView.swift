@@ -19,8 +19,6 @@ struct WeatherView: View {
         self.cityName = cityName
     }
     
-    @State private var halfCellSize: Double = .zero
-    
     //MARK: Body
     
     var body: some View {
@@ -28,24 +26,22 @@ struct WeatherView: View {
             WeatherHeaderView(for: weather, in: cityName)
             
             ScrollView(showsIndicators: false) {
-                Grid(horizontalSpacing: 15 ,verticalSpacing: 15) {
-                        HourlyForecastView(for: weather.hourlyForecast.forecast.currentDay)
+                Group {
+                    HourlyForecastView(for: weather.hourlyForecast.forecast.currentDay)
+                    
+                    TenDayForecastView(for: weather.dailyForecast.forecast)
+                    
+                    HStack {
+                        UVIndexView(for: weather.currentWeather.uvIndex)
                         
-                        TenDayForecastView(for: weather.dailyForecast.forecast)
-                        
-                        GridRow {
-                            UVIndexView(for: weather.currentWeather.uvIndex)
-                                .onGettingViewSize { halfCellSize = $0.width }
-                                
-                            SunView(for: weather)
-                        }
-                        .frame(height: halfCellSize)
-                        .cellBackground()
+                        SunView(for: weather)
+                    }
                 }
                 .padding()
             }
         }
         .foregroundColor(.white)
+        .background(SkyView(for: weather.currentWeather.condition))
     }
 }
 

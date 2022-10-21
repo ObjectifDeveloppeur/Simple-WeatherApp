@@ -11,15 +11,15 @@ import CoreLocation
 
 final class WeatherViewModel: ObservableObject {
     private let weatherService: WeatherService
-    private let locationService: Locating
-    private let geocoder: Geocoding
+    private let locationManager: Locating
+    private let geocodingManager: Geocoding
     
-    init(locationService: Locating = LocationService(),
-         geocoder: Geocoding = Geocoder()
+    init(locationService: Locating = LocationManager(),
+         geocoder: Geocoding = GeocodingManager()
     ) {
         self.weatherService = WeatherService.shared
-        self.locationService = locationService
-        self.geocoder = geocoder
+        self.locationManager = locationService
+        self.geocodingManager = geocoder
         subscribeToLocation()
     }
     
@@ -34,7 +34,7 @@ final class WeatherViewModel: ObservableObject {
         
         do {
             let weather = try await weatherService.weather(for: currentLocation)
-            let cityName = try await geocoder.getLocationName(from: currentLocation)
+            let cityName = try await geocodingManager.getLocationName(from: currentLocation)
             state = .loaded(weather: weather, cityName: cityName)
         } catch {
             state = .error(error)
@@ -42,7 +42,7 @@ final class WeatherViewModel: ObservableObject {
     }
     
     private func subscribeToLocation() {
-        guard let locationManager = locationService as? LocationService else { return }
+        guard let locationManager = locationManager as? LocationManager else { return }
         
         Task {
             for await value in locationManager.$location.values {

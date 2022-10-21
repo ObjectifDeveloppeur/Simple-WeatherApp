@@ -12,7 +12,7 @@ extension View {
         self.padding(.horizontal)
             .padding(.top, 6)
             .padding(.bottom, 10)
-            .background(.ultraThinMaterial.opacity(0.4))
+            .background(BlurView(style: .dark).opacity(0.3))
             .cornerRadius(8)
     }
 }

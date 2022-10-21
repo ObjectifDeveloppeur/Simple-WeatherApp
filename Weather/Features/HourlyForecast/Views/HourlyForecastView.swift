@@ -35,7 +35,7 @@ struct HourlyForecastView: View {
                 .padding(.bottom, 6)
             }
         }
-        .background(.ultraThinMaterial.opacity(0.4))
+        .background(BlurView(style: .dark).opacity(0.3))
         .cornerRadius(8)
     }
 }
@@ -44,10 +44,15 @@ struct HourlyForecastView: View {
 //MARK: - Preview
 
 struct HourlyForecastView_Previews: PreviewProvider {
+    static var weather: Weather {
+        return try! JSONMapper.decode(fileName: "WeatherData",
+                                      type: Weather.self)
+    }
     static var previews: some View {
-        HourlyForecastView(for: [])
+        HourlyForecastView(for: weather.hourlyForecast.forecast)
             .padding()
-            .background(.blue)
+            .background(SkyView(for: weather.currentWeather.condition))
+            .foregroundColor(.white)
     }
 }
 

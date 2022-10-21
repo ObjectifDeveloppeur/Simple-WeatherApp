@@ -27,14 +27,14 @@ struct RootView: View {
                     .task(id: vm.currentLocation) {
                         await vm.getWeather()
                     }
-            case let .loaded(currentWeather, cityName):
-                WeatherView(for: currentWeather, in: cityName)
+            case let .loaded(weather, cityName):
+                WeatherView(for: weather, in: cityName)
             case .error(let error):
                 ErrorView(for: error)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.blue)
+        .background(Theme.clearSky)
     }
 }
 

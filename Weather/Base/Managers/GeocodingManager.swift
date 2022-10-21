@@ -1,5 +1,5 @@
 //
-//  Geocoder.swift
+//  GeocodingManager.swift
 //  Weather
 //
 //  Created by Maxime Lathiere on 19/10/2022.
@@ -12,7 +12,7 @@ protocol Geocoding {
     func getLocationName(from location: CLLocation) async throws -> String
 }
 
-struct Geocoder: Geocoding {
+struct GeocodingManager: Geocoding {
     func getLocationName(from location: CLLocation) async throws -> String {
         do {
             let placemark = try await CLGeocoder().reverseGeocodeLocation(location)
@@ -28,7 +28,7 @@ struct Geocoder: Geocoding {
     }
 }
 
-extension Geocoder {
+extension GeocodingManager {
     enum Error: Swift.Error {
     case failedToGeocode
     }

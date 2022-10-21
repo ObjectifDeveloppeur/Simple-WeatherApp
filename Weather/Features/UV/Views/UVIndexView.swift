@@ -27,5 +27,15 @@ struct UVIndexView: View {
         
             UVBar(UVIndex: uvIndex.value)
         }
+        .cellBackground()
+    }
+}
+
+struct UVIndexView_Previews: PreviewProvider {
+    static var uvIndex: UVIndex {
+        try! JSONMapper.decode(fileName: "WeatherData", type: Weather.self).currentWeather.uvIndex
+    }
+    static var previews: some View {
+        UVIndexView(for: uvIndex)
     }
 }
