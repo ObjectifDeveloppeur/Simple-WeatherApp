@@ -68,6 +68,7 @@
 		9C2B968D2903E51200F55807 /* AirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityView.swift; sourceTree = "<group>"; };
 		9C2B969D2903F6F700F55807 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9C2B969F2903F70B00F55807 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9C2B96A029043C8A00F55807 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9C6B5A6629011B4800573298 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C6B5A68290126F900573298 /* IntervalOperator+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntervalOperator+Date.swift"; sourceTree = "<group>"; };
 		9C6B5A6B2901275100573298 /* SunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunViewModel.swift; sourceTree = "<group>"; };
@@ -524,6 +525,7 @@
 				en,
 				Base,
 				fr,
+				es,
 			);
 			mainGroup = 9C213CD728FEBEC200A3DF72;
 			productRefGroup = 9C213CE128FEBEC300A3DF72 /* Products */;
@@ -606,6 +608,7 @@
 			children = (
 				9C2B969D2903F6F700F55807 /* en */,
 				9C2B969F2903F70B00F55807 /* fr */,
+				9C2B96A029043C8A00F55807 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

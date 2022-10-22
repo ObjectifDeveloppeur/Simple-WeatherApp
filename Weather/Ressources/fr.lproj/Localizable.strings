@@ -18,8 +18,8 @@
 
 // Air Quality Condition
 
-"indexOne" = "Bon";
-"indexTwo" = "Moyen";
-"indexThree" = "Dégradé";
-"indexFour" = "Mauvais";
+"indexOne" = "Bonne";
+"indexTwo" = "Moyenne";
+"indexThree" = "Dégradée";
+"indexFour" = "Mauvaise";
 "indexFive" = "Médiocre";
