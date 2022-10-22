@@ -11,12 +11,10 @@ import WeatherKit
 //MARK: - WeatherHeaderView
 
 struct WeatherHeaderView: View {
-    private let weather: Weather
-    private let cityName: String
-    
-    init(for weather: Weather, in cityName: String) {
-        self.weather = weather
-        self.cityName = cityName
+    private let weatherData: WeatherData
+   
+    init(for weatherData: WeatherData) {
+        self.weatherData = weatherData
     }
     
     
@@ -37,7 +35,7 @@ struct WeatherHeaderView: View {
 
 private extension WeatherHeaderView {
     var city: some View {
-        Text(cityName)
+        Text(weatherData.cityName)
             .font(.largeTitle)
     }
     
@@ -52,7 +50,7 @@ private extension WeatherHeaderView {
     
     @ViewBuilder
     var temperatureVariation: some View {
-        if let today = weather.dailyForecast.first {
+        if let today = weatherData.weather.dailyForecast.first {
             Text("H:\(today.highTemperature.narrowFormatted()) L:\(today.lowTemperature.narrowFormatted())")
         }
     }
@@ -63,7 +61,7 @@ private extension WeatherHeaderView {
 
 private extension WeatherHeaderView {
     var currentWeather: CurrentWeather {
-        weather.currentWeather
+        weatherData.weather.currentWeather
     }
 }
 

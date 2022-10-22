@@ -33,7 +33,8 @@ struct SunView: View {
                     .offset(y: vm.sunLineOffset)
             }
             
-            Text(vm.footer)
+            Text(vm.localizedFooter)
+            + Text(" \(vm.sunrise)")
         }
         .cellBackground()
     }

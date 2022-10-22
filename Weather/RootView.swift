@@ -25,10 +25,10 @@ struct RootView: View {
             case .loading:
                 progressView
                     .task(id: vm.currentLocation) {
-                        await vm.getWeather()
+                        await vm.getWeatherData()
                     }
-            case let .loaded(weather, cityName):
-                WeatherView(for: weather, in: cityName)
+            case let .loaded(weatherData):
+                WeatherView(for: weatherData)
             case .error(let error):
                 ErrorView(for: error)
             }

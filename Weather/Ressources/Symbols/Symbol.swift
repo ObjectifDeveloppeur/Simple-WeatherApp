@@ -15,4 +15,7 @@ enum Symbol {
     static let uvIndex = Image(systemName: "sun.max.fill")
     static let sunset = Image(systemName: "sunset.fill")
     static let sunrise = Image(systemName: "sunrise.fill")
+    static let aqiLow = Image(systemName: "aqi.low")
+    static let aqiMedium = Image(systemName: "aqi.medium")
+    static let aqiHigh = Image(systemName: "aqi.high")
 }

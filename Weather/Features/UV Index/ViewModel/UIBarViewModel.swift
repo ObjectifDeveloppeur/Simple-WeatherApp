@@ -11,7 +11,7 @@ import SwiftUI
 
 extension UVBar {
     final class UVBarViewModel: ObservableObject {
-        private let currentUVIndex: Int
+        let currentUVIndex: Int
         
         init(currentUVIndex: Int) {
             self.currentUVIndex = currentUVIndex

@@ -18,7 +18,8 @@ struct WeatherSectionView: View {
         HStack {
             section.symbolName
             
-            Text(section.title.uppercased())
+            Text(section.title)
+                .textCase(.uppercase)
         }
         .font(.caption)
         .foregroundStyle(.secondary)
@@ -29,6 +30,6 @@ struct WeatherSectionView: View {
 
 struct SectionHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherSectionView(.tenDayForecast)
+        WeatherSectionView(.airQuality(3))
     }
 }

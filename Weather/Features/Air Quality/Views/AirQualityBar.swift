@@ -1,26 +1,23 @@
 //
-//  UVBar.swift
+//  AirQualityView.swift
 //  Weather
 //
-//  Created by Maxime Lathiere on 19/10/2022.
+//  Created by Maxime Lathiere on 21/10/2022.
 //
 
 import SwiftUI
+import CoreLocation
 
-//MARK: - UVBar View
-
-struct UVBar: View {
-    @StateObject private var vm: UVBarViewModel
+struct AirQualityBar: View {
+    @StateObject private var vm: AirQualityBarViewModel
     
-    init(UVIndex: Int) {
-        self._vm = StateObject(wrappedValue: UVBarViewModel(currentUVIndex: UVIndex))
+    init(for airQuality: AirQuality) {
+        self._vm = StateObject(wrappedValue: AirQualityBarViewModel(currentAirQuality: airQuality))
     }
-    
-    //MARK: Body
     
     var body: some View {
         ZStack(alignment: .leading) {
-            LinearGradient(stops: Gradient.Stop.uvScale,
+            LinearGradient(stops: AirQuality.scale,
                            startPoint: .leading,
                            endPoint: .trailing)
             .onGettingViewSize(action: vm.setUp)
@@ -39,12 +36,9 @@ struct UVBar: View {
     }
 }
 
-
-//MARK: - Preview
-
-struct UVBar_Previews: PreviewProvider {
+struct AirQualityBar_Previews: PreviewProvider {
     static var previews: some View {
-        UVBar(UVIndex: 15)
+        AirQualityBar(for: .init(index: 5))
             .padding()
     }
 }

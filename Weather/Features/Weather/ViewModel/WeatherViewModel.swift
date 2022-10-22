@@ -13,13 +13,16 @@ final class WeatherViewModel: ObservableObject {
     private let weatherService: WeatherService
     private let locationManager: Locating
     private let geocodingManager: Geocoding
+    private let networkingManager: Networking
     
     init(locationService: Locating = LocationManager(),
-         geocoder: Geocoding = GeocodingManager()
+         geocoder: Geocoding = GeocodingManager(),
+         networkingManager: Networking = NetworkinManager()
     ) {
         self.weatherService = WeatherService.shared
         self.locationManager = locationService
         self.geocodingManager = geocoder
+        self.networkingManager = networkingManager
         subscribeToLocation()
     }
     
@@ -27,15 +30,17 @@ final class WeatherViewModel: ObservableObject {
     @Published private(set) var currentLocation: CLLocation?
     
     @MainActor
-    func getWeather() async {
+    func getWeatherData() async {
         guard let currentLocation else { return }
         
         state = .loading
         
         do {
-            let weather = try await weatherService.weather(for: currentLocation)
-            let cityName = try await geocodingManager.getLocationName(from: currentLocation)
-            state = .loaded(weather: weather, cityName: cityName)
+            async let weather = try weatherService.weather(for: currentLocation)
+            async let cityName = try geocodingManager.getLocationName(from: currentLocation)
+            async let airQuality = try networkingManager.fetch(AirQualityRequest(latitude: currentLocation.coordinate.latitude,
+                                                                                 longitude: currentLocation.coordinate.longitude))
+            state = try await .loaded(weatherData: (weather: weather, cityName: cityName, airQuality: airQuality))
         } catch {
             state = .error(error)
         }
@@ -54,10 +59,13 @@ final class WeatherViewModel: ObservableObject {
     }
 }
 
+
+typealias WeatherData = (weather: Weather, cityName: String, airQuality: AirQuality?)
+
 extension WeatherViewModel {
     enum State {
         case loading
-        case loaded(weather: Weather, cityName: String)
+        case loaded(weatherData: WeatherData)
         case error(Error)
     }
 }

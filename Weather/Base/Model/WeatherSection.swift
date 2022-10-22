@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum WeatherSection {
+    case airQuality(Double)
     case hourlyForecast
     case tenDayForecast
     case uvIndex
@@ -15,21 +16,29 @@ enum WeatherSection {
 }
 
 extension WeatherSection {
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
+        case .airQuality:
+            return "airQualityTitle"
         case .hourlyForecast:
-            return "Prévisions heure par heure"
+            return "hourlyForecastTitle"
         case .tenDayForecast:
-            return "Prévisions sur 10 jours"
+            return "tenDayForecastTitle"
         case .uvIndex:
-            return "Indice UV"
+            return "uvIndexTitle"
         case .sun(let isDaylight):
-            return isDaylight ? "Sunset" : "Sunrise"
+            return isDaylight ? "sunsetTitle" : "sunriseTitle"
         }
     }
     
     var symbolName: Image {
         switch self {
+        case .airQuality(let index):
+            switch index {
+            case 1: return Symbol.aqiLow
+            case 2: return Symbol.aqiMedium
+            default: return Symbol.aqiHigh
+            }
         case .hourlyForecast:
             return Symbol.hourlyForecast
         case .tenDayForecast:

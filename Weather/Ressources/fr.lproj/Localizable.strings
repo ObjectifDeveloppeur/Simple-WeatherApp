@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Maxime Lathiere on 22/10/2022.
+  
+*/
+
+// Weather Section Title
+
+"airQualityTitle" = "Qualité de l'air";
+"hourlyForecastTitle" = "Prévisions heure par heure";
+"tenDayForecastTitle" = "Prévisions sur 10 jours";
+"uvIndexTitle" = "Indice UV";
+"sunsetTitle" = "Coucher";
+"sunriseTitle" = "Lever";
+
+
+// Air Quality Condition
+
+"indexOne" = "Bon";
+"indexTwo" = "Moyen";
+"indexThree" = "Dégradé";
+"indexFour" = "Mauvais";
+"indexFive" = "Médiocre";

@@ -11,37 +11,38 @@ import WeatherKit
 //MARK: - WeatherView
 
 struct WeatherView: View {
-    private let weather: Weather
-    private let cityName: String
+    private let weatherData: WeatherData
     
-    init(for weather: Weather, in cityName: String) {
-        self.weather = weather
-        self.cityName = cityName
+    init(for weatherData: WeatherData) {
+        self.weatherData = weatherData
     }
     
     //MARK: Body
     
     var body: some View {
         VStack {
-            WeatherHeaderView(for: weather, in: cityName)
+            WeatherHeaderView(for: weatherData)
             
             ScrollView(showsIndicators: false) {
                 Group {
-                    HourlyForecastView(for: weather.hourlyForecast.forecast.currentDay)
+                    if let airQuality = weatherData.airQuality {
+                        AirQualityView(for: airQuality)
+                    }
+                    HourlyForecastView(for: weatherData.weather.hourlyForecast.forecast.currentDay)
                     
-                    TenDayForecastView(for: weather.dailyForecast.forecast)
+                    TenDayForecastView(for: weatherData.weather.dailyForecast.forecast)
                     
                     HStack {
-                        UVIndexView(for: weather.currentWeather.uvIndex)
+                        UVIndexView(for: weatherData.weather.currentWeather.uvIndex)
                         
-                        SunView(for: weather)
+                        SunView(for: weatherData.weather)
                     }
                 }
                 .padding()
             }
         }
         .foregroundColor(.white)
-        .background(SkyView(for: weather.currentWeather.condition))
+        .background(SkyView(for: weatherData.weather.currentWeather.condition))
     }
 }
 
@@ -53,7 +54,7 @@ struct WeatherView_Previews: PreviewProvider {
                                       type: Weather.self)
     }
     static var previews: some View {
-        WeatherView(for: weather, in: "Marseille")
+        WeatherView(for: (weather, "Marseille", .init(index: 3)))
             .background(.blue)
     }
 }

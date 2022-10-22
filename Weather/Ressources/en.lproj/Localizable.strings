@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Maxime Lathiere on 22/10/2022.
+  
+*/
+
+// Weather Section Title
+
+"airQualityTitle" = "Air quality";
+"hourlyForecastTitle" = "hourly forecast";
+"tenDayForecastTitle" = "10-day forecast";
+"uvIndexTitle" = "UVIndex";
+"sunsetTitle" = "Sunset";
+"sunriseTitle" = "Sunrise";
+
+
+// Air Quality Index Condition
+
+"indexOne" = "Good";
+"indexTwo" = "Moderated";
+"indexThree" = "Deteriorated";
+"indexFour" = "Poor";
+"indexFive" = "Very Poor";

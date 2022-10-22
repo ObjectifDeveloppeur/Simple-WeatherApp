@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import WeatherKit
 
-extension Gradient.Stop {
+extension UVIndex {
     static let uvScale: [Gradient.Stop] = [
         .init(color: .green, location: 0),
         .init(color: .yellow, location: 0.3125),

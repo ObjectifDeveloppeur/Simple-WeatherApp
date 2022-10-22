@@ -67,11 +67,19 @@ extension SunViewModel {
         isDaylight ? sunset : sunrise
     }
     
-    var footer: String {
+    var localizedFooter: LocalizedStringKey {
         if isDaylight {
-            return "Sunrise: \(sunrise)"
+            return "sunriseTitle"
         } else {
-            return "Sunset: \(sunset)"
+            return "sunsetTitle"
+        }
+    }
+    
+    var hourFooter: String {
+        if isDaylight {
+            return sunrise
+        } else {
+            return sunset
         }
     }
 }
