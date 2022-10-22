@@ -244,8 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				9C88AFC22902FBD400095E70 /* NetworkinManager.swift */,
-				9C2B967D2902FC4E00F55807 /* AirQualityRequest.swift */,
 				9C88AFC32902FBD400095E70 /* Request.swift */,
+				9C2B967D2902FC4E00F55807 /* AirQualityRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
