@@ -17,7 +17,9 @@ struct SkyView: View {
     
     var body: some View {
         ZStack {
-            sky.color
+            Rectangle()
+                .foregroundStyle(sky.color.gradient)
+                .rotationEffect(.degrees(180))
                 .ignoresSafeArea()
         }
     }

@@ -191,6 +191,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9C2B96A129043FDE00F55807 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CE0B3EF29003DE70094C359 /* SunView.swift */,
+				9C8A4731290079C10078DD8D /* SunCurve.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9C6B5A6529011B3E00573298 /* DateFormatter */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,8 +484,7 @@
 		9CE0B3F129003DEE0094C359 /* Sun */ = {
 			isa = PBXGroup;
 			children = (
-				9CE0B3EF29003DE70094C359 /* SunView.swift */,
-				9C8A4731290079C10078DD8D /* SunCurve.swift */,
+				9C2B96A129043FDE00F55807 /* Views */,
 				9C6B5A6A2901274600573298 /* View Model */,
 			);
 			path = Sun;
